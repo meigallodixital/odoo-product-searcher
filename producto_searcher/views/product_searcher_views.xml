@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!--- Product Search Views -->
+  <record id="view_product_searcher_tree" model="ir.ui.view">
+    <field name="name">product.searcher_tree</field>
+    <field name="model">product.searcher</field>
+    <field name="arch" type="xml">
+      <tree string="Product Searches" editable="top">
+        <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+        <field name="name"/>
+        <field name="description"/>
+        <field name="phone"/>
+        <field name="max_price" options="{'currency_field': 'currency_id'}"/>
+        <field name="quality"/>
+        <field name="max_date"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_product_searcher_kanban" model="ir.ui.view">
+    <field name="name">product.searcher_kanban</field>
+    <field name="model">product.searcher</field>
+    <field name="arch" type="xml">
+      <kanban string="Product Searches" create="0">
+        <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit" />
+      </kanban>
+    </field>
+  </record>
+
+  <record id="product_searcher_view_form" model="ir.ui.view">
+    <field name="name">product.searcher_form</field>
+    <field name="model">product.searcher</field>
+    <field name="arch" type="xml">
+      <form string="Product Searcher">
+        <field name="operating_unit_id"
+                options="{'no_create': True}" 
+                groups="operating_unit.group_multi_operating_unit" />
+        <field name="name"/>
+        <field name="description"/>
+        <field name="phone"/>
+        <field name="max_price"/>
+        <field name="quality"/>
+        <field name="max_date"/>
+        <field name="state"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="product_searcher_view_filter" model="ir.ui.view">
+    <field name="name">product.searcher_filter</field>
+    <field name="model">product.searcher</field>
+    <field name="arch" type="xml">
+      <search string="Product Searches">
+        <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+        <field name="state"/>
+        <field name="quality"/>
+        <filter name="group_default_operating_unit" string="Default Operating Unit" context="{'group_by':'operating_unit_id'}"/>
+      </search>
+    </field>
+  </record>
+
+  <!-- Actions -->
+  <record id="action_product_searcher" model="ir.actions.act_window">
+        <field name="name">Product Searcher</field>
+        <field name="res_model">product.searcher</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="product_searcher_view_filter"/>
+    </record>
+
+  <!-- Menus -->
+  <menuitem
+      id="menu_product_searcher_root"
+      name="Product Searcher"
+      web_icon="calendar,static/description/icon.png"/>
+
+  <menuitem id="menu_product_searcher_management" name="Searches"
+    parent="menu_product_searcher_root"
+    action="action_product_searcher" sequence="10"/>
+</odoo>
