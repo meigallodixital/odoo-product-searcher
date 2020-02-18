@@ -39,7 +39,7 @@
             <field name="name">Product Searcher User Rule</field>
             <field name="model_id" ref="model_product_searcher"/>
             <field name="global" eval="True"/>
-            <field name="domain_force">[('operating_unit_id', 'in', user.operating_unit_ids)]</field>
+            <field name="domain_force">[('operating_unit_id', 'in', user.operating_unit_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('group_product_searcher_user'))]"/>
         </record>
 

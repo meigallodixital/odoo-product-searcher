@@ -12,18 +12,20 @@ class ProductSearcher(models.Model):
     )
 
     STATES = (
-        ('new', 'New'),
+        ('pending', 'Pending'),
         ('process', 'In process'),
         ('cancel', 'Cancel'),
         ('approved', 'Approved'),
     )
 
-    operating_unit_id = fields.Many2one(
-        'operating.unit',
-        'Operating Unit',
+    operating_unit_id = fields.Selection(
+        selection=lambda self: self._compute_operating_unit(),
+        string='Operating Unit',
         default=lambda self: (
-            self.env['res.users'].operating_unit_default_get()
-            )
+                self.env['res.users'].operating_unit_default_get().id
+            ),
+        required=True
+        
     )
     name = fields.Char(required=True)
     client = fields.Char(required=True)
@@ -41,4 +43,7 @@ class ProductSearcher(models.Model):
     state = fields.Selection(
         STATES,
         required=True,
-        default='new')
+        default='pending')
+
+    def _compute_operating_unit(self):
+        return [(str(ou.id), ou.name) for ou in self.env['operating.unit'].sudo().search([('active', '=', True)]).sorted(key=lambda r: r.name)]
