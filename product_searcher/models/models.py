@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-
+from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api
 
 class ProductSearcher(models.Model):
@@ -8,14 +7,15 @@ class ProductSearcher(models.Model):
 
     QUALITIES = (
         ('new', 'New'),
-        ('opened', 'Opened'),
+        ('good', 'Good status'),
         ('used', 'Used'),
     )
 
     STATES = (
         ('new', 'New'),
-        ('opened', 'Opened'),
-        ('used', 'Used'),
+        ('process', 'In process'),
+        ('cancel', 'Cancel'),
+        ('approved', 'Approved'),
     )
 
     operating_unit_id = fields.Many2one(
@@ -25,14 +25,20 @@ class ProductSearcher(models.Model):
             self.env['res.users'].operating_unit_default_get()
             )
     )
-    name = fields.Char()
+    name = fields.Char(required=True)
+    client = fields.Char(required=True)
     description = fields.Text()
-    phone = fields.Text()
+    phone = fields.Char(required=True)
     currency_id = fields.Many2one(
         'res.currency',
         string='Currency'
     )
     max_price = fields.Monetary()
-    quality = fields.Selection(QUALITIES)
-    max_date = fields.Datetime()
-    state = fields.Selection(STATES)
+    quality = fields.Selection(QUALITIES, required=True)
+    max_date = fields.Datetime(
+        default=lambda self: fields.Datetime.now()+relativedelta(months=2)
+    )
+    state = fields.Selection(
+        STATES,
+        required=True,
+        default='new')
