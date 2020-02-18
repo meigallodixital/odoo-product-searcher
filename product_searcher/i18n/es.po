@@ -108,7 +108,7 @@ msgstr "Precio máximo cliente"
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__name
 msgid "Name"
-msgstr "Nombre"
+msgstr "Producto"
 
 #. module: product_searcher
 #: selection:product.searcher,quality:0

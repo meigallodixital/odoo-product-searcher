@@ -22,7 +22,7 @@ class ProductSearcher(models.Model):
         selection=lambda self: self._compute_operating_unit(),
         string='Operating Unit',
         default=lambda self: (
-                self.env['res.users'].operating_unit_default_get().id
+                str(self.env['res.users'].operating_unit_default_get().id)
             ),
         required=True
         
