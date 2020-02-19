@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-18 13:33+0000\n"
-"PO-Revision-Date: 2020-02-18 13:33+0000\n"
+"POT-Creation-Date: 2020-02-19 10:21+0000\n"
+"PO-Revision-Date: 2020-02-19 10:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -108,7 +108,7 @@ msgstr "Precio máximo cliente"
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__name
 msgid "Name"
-msgstr "Producto"
+msgstr "Nombre"
 
 #. module: product_searcher
 #: selection:product.searcher,quality:0
@@ -153,6 +153,7 @@ msgstr "Búsquedas de productos"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__quality
+#: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "Quality"
 msgstr "Estado producto"
 
@@ -163,6 +164,7 @@ msgstr "Búsquedas"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__state
+#: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "State"
 msgstr "Estado"
 

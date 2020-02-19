@@ -16,6 +16,7 @@
         <field name="quality"/>
         <field name="max_date"/>
         <field name="state"/>
+        <field name="create_uid"/>
       </tree>
     </field>
   </record>
@@ -83,6 +84,8 @@
         <field name="state"/>
         <field name="quality"/>
         <filter name="group_default_operating_unit" string="Default Operating Unit" context="{'group_by':'operating_unit_id'}"/>
+        <filter name="group_state" string="State" context="{'group_by':'state'}"/>
+        <filter name="group_quality" string="Quality" context="{'group_by':'quality'}"/>
       </search>
     </field>
   </record>
@@ -99,9 +102,9 @@
   <menuitem
       id="menu_product_searcher_root"
       name="Product Searcher"
-      web_icon="calendar,static/description/icon.png"/>
+      web_icon="product_searcher,static/description/icon.png"/>
 
   <menuitem id="menu_product_searcher_management" name="Searches"
     parent="menu_product_searcher_root"
-    action="action_product_searcher" sequence="10"/>
+    action="action_product_searcher"/>
 </odoo>
