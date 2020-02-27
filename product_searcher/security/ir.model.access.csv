@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_product_searcher_user,product.searcher.user,model_product_searcher,product_searcher.group_product_searcher_user,1,1,1,1
 access_product_searcher_operator,product.searcher.operator,model_product_searcher,product_searcher.group_product_searcher_operator,1,1,1,1
 access_product_searcher_manager,product.searcher.manager,model_product_searcher,product_searcher.group_product_searcher_manager,1,1,1,1
+access_product_searcher_users,access_product_searcher_users,model_product_searcher_users,base.group_user,1,0,0,0
+access_product_searcher_operating_unit,access_product_searcher_operating_unit,model_product_searcher_operating_unit,base.group_user,1,0,0,0

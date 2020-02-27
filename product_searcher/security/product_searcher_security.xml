@@ -33,7 +33,8 @@
                    (4, ref('base.user_admin'))]"/>
     </record>
 
-    <!-- Access rules -->
+
+    <!-- Product Searcher Access Rules -->
     <data noupdate="0">
         <record id="product_searcher_user_rule" model="ir.rule">
             <field name="name">Product Searcher User Rule</field>

@@ -12,11 +12,13 @@
         <field name="name"/>
         <field name="description"/>
         <field name="phone" widget="phone"/>
+        <field name="email" widget="email"/>
         <field name="max_price" options="{'currency_field': 'currency_id'}"/>
         <field name="quality"/>
         <field name="max_date"/>
         <field name="state"/>
-        <field name="create_uid"/>
+        <field name="applicant_id"/>
+        <!-- <field name="applicant_id" domain="[('default_operating_unit_id', '=', operating_unit_id)]"/> -->
       </tree>
     </field>
   </record>
@@ -67,6 +69,7 @@
         <field name="name"/>
         <field name="description"/>
         <field name="phone"/>
+        <field name="email"/>
         <field name="max_price"/>
         <field name="quality"/>
         <field name="max_date"/>
@@ -86,6 +89,8 @@
         <filter name="group_default_operating_unit" string="Default Operating Unit" context="{'group_by':'operating_unit_id'}"/>
         <filter name="group_state" string="State" context="{'group_by':'state'}"/>
         <filter name="group_quality" string="Quality" context="{'group_by':'quality'}"/>
+        <filter name="group_applicant" string="Applicant" context="{'group_by':'applicant_id'}"/>
+        <filter name="group_operating_unit" string="Operating Unit" context="{'group_by':'operating_unit_id'}"/>
       </search>
     </field>
   </record>

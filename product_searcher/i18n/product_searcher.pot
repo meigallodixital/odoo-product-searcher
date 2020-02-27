@@ -6,14 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-19 10:20+0000\n"
-"PO-Revision-Date: 2020-02-19 10:20+0000\n"
+"POT-Creation-Date: 2020-02-27 08:17+0000\n"
+"PO-Revision-Date: 2020-02-27 08:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__active
+msgid "Active"
+msgstr ""
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher__applicant_id
+#: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
+msgid "Applicant"
+msgstr ""
 
 #. module: product_searcher
 #: selection:product.searcher,state:0
@@ -28,6 +39,11 @@ msgstr ""
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__client
 msgid "Client"
+msgstr ""
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__code
+msgid "Code"
 msgstr ""
 
 #. module: product_searcher
@@ -46,6 +62,7 @@ msgid "Currency"
 msgstr ""
 
 #. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__default_operating_unit_id
 #: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "Default Operating Unit"
 msgstr ""
@@ -57,7 +74,14 @@ msgstr ""
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__display_name
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__display_name
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher__email
+msgid "Email"
 msgstr ""
 
 #. module: product_searcher
@@ -67,6 +91,8 @@ msgstr ""
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__id
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__id
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__id
 msgid "ID"
 msgstr ""
 
@@ -77,6 +103,8 @@ msgstr ""
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher____last_update
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit____last_update
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -88,6 +116,11 @@ msgstr ""
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__write_date
 msgid "Last Updated on"
+msgstr ""
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__login
+msgid "Login"
 msgstr ""
 
 #. module: product_searcher
@@ -107,6 +140,8 @@ msgstr ""
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__name
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__name
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__name
 msgid "Name"
 msgstr ""
 
@@ -117,6 +152,7 @@ msgstr ""
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__operating_unit_id
+#: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "Operating Unit"
 msgstr ""
 
@@ -133,6 +169,16 @@ msgstr ""
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__phone
 msgid "Phone"
+msgstr ""
+
+#. module: product_searcher
+#: model:ir.model,name:product_searcher.model_product_searcher_operating_unit
+msgid "Product Search Operating Unit"
+msgstr ""
+
+#. module: product_searcher
+#: model:ir.model,name:product_searcher.model_product_searcher_users
+msgid "Product Search Users"
 msgstr ""
 
 #. module: product_searcher
@@ -155,6 +201,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__quality
 #: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "Quality"
+msgstr ""
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__partner_id
+msgid "Related Partner"
 msgstr ""
 
 #. module: product_searcher

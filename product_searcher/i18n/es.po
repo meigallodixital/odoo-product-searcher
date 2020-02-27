@@ -6,14 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-19 10:21+0000\n"
-"PO-Revision-Date: 2020-02-19 10:21+0000\n"
+"POT-Creation-Date: 2020-02-27 08:17+0000\n"
+"PO-Revision-Date: 2020-02-27 08:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher__applicant_id
+#: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
+msgid "Applicant"
+msgstr "Solicitante"
 
 #. module: product_searcher
 #: selection:product.searcher,state:0
@@ -31,6 +42,11 @@ msgid "Client"
 msgstr "Cliente"
 
 #. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__code
+msgid "Code"
+msgstr "Código"
+
+#. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__create_uid
 msgid "Created by"
 msgstr "Creado por"
@@ -46,6 +62,7 @@ msgid "Currency"
 msgstr "Moneda"
 
 #. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__default_operating_unit_id
 #: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "Default Operating Unit"
 msgstr "Unidad Operativa Actual"
@@ -57,8 +74,15 @@ msgstr "Descripción"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__display_name
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__display_name
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher__email
+msgid "Email"
+msgstr "Correo electrónico"
 
 #. module: product_searcher
 #: selection:product.searcher,quality:0
@@ -67,6 +91,8 @@ msgstr "Buen estado"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__id
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__id
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__id
 msgid "ID"
 msgstr ""
 
@@ -77,6 +103,8 @@ msgstr "En proceso"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher____last_update
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit____last_update
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -89,6 +117,11 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__login
+msgid "Login"
+msgstr "Usuario"
 
 #. module: product_searcher
 #: model:res.groups,name:product_searcher.group_product_searcher_manager
@@ -107,6 +140,8 @@ msgstr "Precio máximo cliente"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__name
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_operating_unit__name
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__name
 msgid "Name"
 msgstr "Nombre"
 
@@ -117,6 +152,7 @@ msgstr "Nuevo"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__operating_unit_id
+#: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "Operating Unit"
 msgstr "Unidad Operativa"
 
@@ -134,6 +170,16 @@ msgstr "Pendiente"
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__phone
 msgid "Phone"
 msgstr "Teléfono de contacto"
+
+#. module: product_searcher
+#: model:ir.model,name:product_searcher.model_product_searcher_operating_unit
+msgid "Product Search Operating Unit"
+msgstr "Búsqueda para tienda de producto"
+
+#. module: product_searcher
+#: model:ir.model,name:product_searcher.model_product_searcher_users
+msgid "Product Search Users"
+msgstr "Uusuarios de búsqueda para tienda"
 
 #. module: product_searcher
 #: model:ir.actions.act_window,name:product_searcher.action_product_searcher
@@ -156,6 +202,11 @@ msgstr "Búsquedas de productos"
 #: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "Quality"
 msgstr "Estado producto"
+
+#. module: product_searcher
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__partner_id
+msgid "Related Partner"
+msgstr "Empresa relacionada"
 
 #. module: product_searcher
 #: model:ir.ui.menu,name:product_searcher.menu_product_searcher_management
