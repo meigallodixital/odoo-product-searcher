@@ -35,10 +35,18 @@
           <field name="operating_unit_id" groups="product_searcher.group_product_searcher_operator" />
             <templates>
               <t t-name="kanban-box">
-                <div class="oe_kanban_card">
-                    <field name="name"/>
-                    <field name="client"/>
-                    <field name="max_price"/>
+                <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                  <div class="oe_kanban_card">
+                    <div>
+                        <strong class="o_kanban_record_title"><span><field name="name"/></span></strong>
+                    </div>
+                    <div>
+                        <span class="o_kanban_record_subtitle"><field name="client"/></span>
+                    </div>
+                    <div>
+                      <field name="max_price"/> €
+                    </div>
+                  </div>
                 </div>
               </t>
             </templates>
@@ -86,22 +94,49 @@
         <field name="operating_unit_id" groups="product_searcher.group_product_searcher_operator"/>
         <field name="state"/>
         <field name="quality"/>
+        <filter name="state_cancel" string="Cancel" domain="[('state', '=', 'cancel')]"/>
+        <filter name="state_approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+        <filter name="state_active" string="Active" domain="['|', ('state', '=', 'pending'), ('state', '=', 'process')]"/>
         <filter name="group_default_operating_unit" string="Default Operating Unit" context="{'group_by':'operating_unit_id'}"/>
         <filter name="group_state" string="State" context="{'group_by':'state'}"/>
         <filter name="group_quality" string="Quality" context="{'group_by':'quality'}"/>
         <filter name="group_applicant" string="Applicant" context="{'group_by':'applicant_id'}"/>
-        <filter name="group_operating_unit" string="Operating Unit" context="{'group_by':'operating_unit_id'}"/>
       </search>
     </field>
   </record>
 
   <!-- Actions -->
   <record id="action_product_searcher" model="ir.actions.act_window">
-        <field name="name">Product Searcher</field>
-        <field name="res_model">product.searcher</field>
-        <field name="view_mode">tree,kanban,calendar,form</field>
-        <field name="search_view_id" ref="product_searcher_view_filter"/>
-    </record>
+    <field name="name">Product Searcher</field>
+    <field name="res_model">product.searcher</field>
+    <field name="view_mode">tree,kanban,calendar,form</field>
+    <field name="search_view_id" ref="product_searcher_view_filter"/>
+  </record>
+
+  <record id="action_product_searcher_active" model="ir.actions.act_window">
+    <field name="name">Product Searcher Active</field>
+    <field name="res_model">product.searcher</field>
+    <field name="view_mode">tree,kanban,calendar,form</field>
+    <field name="search_view_id" ref="product_searcher_view_filter"/>
+    <field name="context">{'search_default_state_active': 1}</field>
+  </record>
+
+  <record id="action_product_searcher_cancel" model="ir.actions.act_window">
+    <field name="name">Product Searcher Cancel</field>
+    <field name="res_model">product.searcher</field>
+    <field name="view_mode">tree,kanban,calendar,form</field>
+    <field name="search_view_id" ref="product_searcher_view_filter"/>
+    <field name="context">{'search_default_state_cancel': 1}</field>
+  </record>
+
+  <record id="action_product_searcher_approved" model="ir.actions.act_window">
+    <field name="name">Product Searcher Approved</field>
+    <field name="res_model">product.searcher</field>
+    <field name="view_mode">tree,kanban,calendar,form</field>
+    <field name="search_view_id" ref="product_searcher_view_filter"/>
+    <field name="context">{'search_default_state_approved': 1}</field>
+  </record>
+
 
   <!-- Menus -->
   <menuitem
@@ -109,7 +144,24 @@
       name="Product Searcher"
       web_icon="product_searcher,static/description/icon.png"/>
 
-  <menuitem id="menu_product_searcher_management" name="Searches"
+  <menuitem id="menu_product_searcher_active" name="Active Searches"
     parent="menu_product_searcher_root"
+    sequence="10"
+    action="action_product_searcher_active"/>
+  
+  <menuitem id="menu_product_searcher_cancel" name="Cancelled Searches"
+    parent="menu_product_searcher_root"
+    sequence="20"
+    action="action_product_searcher_cancel"/>
+
+  <menuitem id="menu_product_searcher_approved" name="Approved Searches"
+    parent="menu_product_searcher_root"
+    sequence="30"
+    action="action_product_searcher_approved"/>
+
+  <menuitem id="menu_product_searcher_management" name="Total Searches"
+    parent="menu_product_searcher_root"
+    sequence="40"
     action="action_product_searcher"/>
+
 </odoo>
