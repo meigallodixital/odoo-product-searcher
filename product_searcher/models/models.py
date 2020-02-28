@@ -45,7 +45,7 @@ class ProductSearcher(models.Model):
         ('used', 'Used'),
     )
 
-    STATES = (
+    STATUSES = (
         ('pending', 'Pending'),
         ('process', 'In process'),
         ('cancel', 'Cancel'),
@@ -72,8 +72,8 @@ class ProductSearcher(models.Model):
     max_date = fields.Datetime(
         default=lambda self: fields.Datetime.now()+relativedelta(months=2)
     )
-    state = fields.Selection(
-        STATES,
+    status = fields.Selection(
+        STATUSES,
         required=True,
         default='pending')
     applicant_id = fields.Many2one(

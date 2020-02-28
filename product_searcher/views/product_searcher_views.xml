@@ -5,7 +5,11 @@
     <field name="name">product.searcher_tree</field>
     <field name="model">product.searcher</field>
     <field name="arch" type="xml">
-      <tree string="Product Searches" editable="top">
+      <tree string="Product Searches"
+            editable="top"
+            decoration-success="status=='approved'"
+            decoration-danger="status=='cancel'"
+            decoration-warning="status=='process'">
         <field name="operating_unit_id"
                groups="product_searcher.group_product_searcher_operator"/>
         <field name="client"/>
@@ -16,7 +20,7 @@
         <field name="max_price" options="{'currency_field': 'currency_id'}"/>
         <field name="quality"/>
         <field name="max_date"/>
-        <field name="state"/>
+        <field name="status"/>
         <field name="applicant_id"/>
         <!-- <field name="applicant_id" domain="[('default_operating_unit_id', '=', operating_unit_id)]"/> -->
       </tree>
@@ -81,7 +85,7 @@
         <field name="max_price"/>
         <field name="quality"/>
         <field name="max_date"/>
-        <field name="state"/>
+        <field name="status"/>
       </form>
     </field>
   </record>
@@ -92,13 +96,13 @@
     <field name="arch" type="xml">
       <search string="Product Searches">
         <field name="operating_unit_id" groups="product_searcher.group_product_searcher_operator"/>
-        <field name="state"/>
+        <field name="status"/>
         <field name="quality"/>
-        <filter name="state_cancel" string="Cancel" domain="[('state', '=', 'cancel')]"/>
-        <filter name="state_approved" string="Approved" domain="[('state', '=', 'approved')]"/>
-        <filter name="state_active" string="Active" domain="['|', ('state', '=', 'pending'), ('state', '=', 'process')]"/>
+        <filter name="status_cancel" string="Cancel" domain="[('status', '=', 'cancel')]"/>
+        <filter name="status_approved" string="Approved" domain="[('status', '=', 'approved')]"/>
+        <filter name="status_active" string="Active" domain="['|', ('status', '=', 'pending'), ('status', '=', 'process')]"/>
         <filter name="group_default_operating_unit" string="Default Operating Unit" context="{'group_by':'operating_unit_id'}"/>
-        <filter name="group_state" string="State" context="{'group_by':'state'}"/>
+        <filter name="group_status" string="status" context="{'group_by':'status'}"/>
         <filter name="group_quality" string="Quality" context="{'group_by':'quality'}"/>
         <filter name="group_applicant" string="Applicant" context="{'group_by':'applicant_id'}"/>
       </search>
@@ -118,7 +122,7 @@
     <field name="res_model">product.searcher</field>
     <field name="view_mode">tree,kanban,calendar,form</field>
     <field name="search_view_id" ref="product_searcher_view_filter"/>
-    <field name="context">{'search_default_state_active': 1}</field>
+    <field name="context">{'search_default_status_active': 1}</field>
   </record>
 
   <record id="action_product_searcher_cancel" model="ir.actions.act_window">
@@ -126,7 +130,7 @@
     <field name="res_model">product.searcher</field>
     <field name="view_mode">tree,kanban,calendar,form</field>
     <field name="search_view_id" ref="product_searcher_view_filter"/>
-    <field name="context">{'search_default_state_cancel': 1}</field>
+    <field name="context">{'search_default_status_cancel': 1}</field>
   </record>
 
   <record id="action_product_searcher_approved" model="ir.actions.act_window">
@@ -134,7 +138,7 @@
     <field name="res_model">product.searcher</field>
     <field name="view_mode">tree,kanban,calendar,form</field>
     <field name="search_view_id" ref="product_searcher_view_filter"/>
-    <field name="context">{'search_default_state_approved': 1}</field>
+    <field name="context">{'search_default_status_approved': 1}</field>
   </record>
 
 

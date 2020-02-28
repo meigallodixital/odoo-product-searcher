@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* product_searcher
+# 	* product_searcher
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-28 08:35+0000\n"
-"PO-Revision-Date: 2020-02-28 08:35+0000\n"
+"POT-Creation-Date: 2020-02-28 10:13+0000\n"
+"PO-Revision-Date: 2020-02-28 11:16+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Solicitante"
 
 #. module: product_searcher
 #: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
-#: selection:product.searcher,state:0
+#: selection:product.searcher,status:0
 msgid "Approved"
 msgstr "Aprobado"
 
@@ -45,7 +45,7 @@ msgstr "Búsquedas aprobadas"
 
 #. module: product_searcher
 #: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
-#: selection:product.searcher,state:0
+#: selection:product.searcher,status:0
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -83,12 +83,12 @@ msgstr "Moneda"
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher_users__default_operating_unit_id
 #: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
 msgid "Default Operating Unit"
-msgstr "Unidad Operativa Actual"
+msgstr "Tienda"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__description
 msgid "Description"
-msgstr "Notas"
+msgstr "Descripción"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__display_name
@@ -115,7 +115,7 @@ msgid "ID"
 msgstr ""
 
 #. module: product_searcher
-#: selection:product.searcher,state:0
+#: selection:product.searcher,status:0
 msgid "In process"
 msgstr "En proceso"
 
@@ -170,7 +170,7 @@ msgstr "Nuevo"
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__operating_unit_id
 msgid "Operating Unit"
-msgstr "Unidad Operativa"
+msgstr "Tienda"
 
 #. module: product_searcher
 #: model:res.groups,name:product_searcher.group_product_searcher_operator
@@ -178,14 +178,14 @@ msgid "Operator"
 msgstr "Gestor"
 
 #. module: product_searcher
-#: selection:product.searcher,state:0
+#: selection:product.searcher,status:0
 msgid "Pending"
 msgstr "Pendiente"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__phone
 msgid "Phone"
-msgstr "Teléfono"
+msgstr "Teléfono de contacto"
 
 #. module: product_searcher
 #: model:ir.model.fields,field_description:product_searcher.field_product_searcher__product_name
@@ -245,10 +245,9 @@ msgid "Related Partner"
 msgstr "Empresa relacionada"
 
 #. module: product_searcher
-#: model:ir.model.fields,field_description:product_searcher.field_product_searcher__state
-#: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
-msgid "State"
-msgstr "Provincia"
+#: model:ir.model.fields,field_description:product_searcher.field_product_searcher__status
+msgid "Status"
+msgstr "Estado"
 
 #. module: product_searcher
 #: model:ir.ui.menu,name:product_searcher.menu_product_searcher_management
@@ -265,3 +264,7 @@ msgstr "Usado"
 msgid "User"
 msgstr "Usuario"
 
+#. module: product_searcher
+#: model_terms:ir.ui.view,arch_db:product_searcher.product_searcher_view_filter
+msgid "status"
+msgstr "Estado"
