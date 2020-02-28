@@ -36,6 +36,8 @@ class ProductSearcherOperatingUnit(models.Model):
 class ProductSearcher(models.Model):
     _name = 'product.searcher'
     _description = "Product Searcher"
+    _rec_name = "product_name"
+    _order = 'max_date desc'
 
     QUALITIES = (
         ('new', 'New'),
@@ -56,7 +58,7 @@ class ProductSearcher(models.Model):
         default=lambda self: self.env['res.users'
                                       ].operating_unit_default_get(self._uid),
         required=True)
-    name = fields.Char(required=True)
+    product_name = fields.Char(required=True)
     client = fields.Char(required=True)
     description = fields.Text()
     phone = fields.Char(required=True)

@@ -9,7 +9,7 @@
         <field name="operating_unit_id"
                groups="product_searcher.group_product_searcher_operator"/>
         <field name="client"/>
-        <field name="name"/>
+        <field name="product_name"/>
         <field name="description"/>
         <field name="phone" widget="phone"/>
         <field name="email" widget="email"/>
@@ -29,7 +29,7 @@
     <field name="arch" type="xml">
       <kanban string="Product Searches" group_create="false" default_group_by="operating_unit_id">
           <field name="id"/>
-          <field name="name"/>
+          <field name="product_name"/>
           <field name="client"/>
           <field name="max_price"/>
           <field name="operating_unit_id" groups="product_searcher.group_product_searcher_operator" />
@@ -38,7 +38,7 @@
                 <div t-attf-class="oe_kanban_content oe_kanban_global_click">
                   <div class="oe_kanban_card">
                     <div>
-                        <strong class="o_kanban_record_title"><span><field name="name"/></span></strong>
+                        <strong class="o_kanban_record_title"><span><field name="product_name"/></span></strong>
                     </div>
                     <div>
                         <span class="o_kanban_record_subtitle"><field name="client"/></span>
@@ -59,7 +59,7 @@
     <field name="model">product.searcher</field>
     <field name="arch" type="xml">
       <calendar date_start="max_date" date_stop="max_date">
-        <field name="name"/>
+        <field name="product_name"/>
         <field name="client"/>
         <field name="max_price"/>
       </calendar>
@@ -74,7 +74,7 @@
         <field name="operating_unit_id"
                options="{'no_create': True}" 
                groups="product_searcher.group_product_searcher_operator" />
-        <field name="name"/>
+        <field name="product_name"/>
         <field name="description"/>
         <field name="phone"/>
         <field name="email"/>
