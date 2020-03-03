@@ -22,7 +22,8 @@
         <field name="max_date"/>
         <field name="status"/>
         <field name="applicant_id"/>
-        <!-- <field name="applicant_id" domain="[('default_operating_unit_id', '=', operating_unit_id)]"/> -->
+        <field name="notify_date"/>
+        <field name="buy_date"/>
       </tree>
     </field>
   </record>
@@ -86,6 +87,8 @@
         <field name="quality"/>
         <field name="max_date"/>
         <field name="status"/>
+        <field name="buy_date"/>
+        <field name="notify_date"/>
       </form>
     </field>
   </record>

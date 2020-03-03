@@ -37,7 +37,7 @@ class ProductSearcher(models.Model):
     _name = 'product.searcher'
     _description = "Product Searcher"
     _rec_name = "product_name"
-    _order = 'max_date desc'
+    _order = 'create_date desc'
 
     QUALITIES = (
         ('new', 'New'),
@@ -69,8 +69,10 @@ class ProductSearcher(models.Model):
     )
     max_price = fields.Monetary()
     quality = fields.Selection(QUALITIES, required=True)
-    max_date = fields.Datetime(
-        default=lambda self: fields.Datetime.now()+relativedelta(months=2)
+    max_date = fields.Date(
+        default=lambda self: (
+                fields.Datetime.now()+relativedelta(months=2)
+            ).date()
     )
     status = fields.Selection(
         STATUSES,
@@ -81,6 +83,8 @@ class ProductSearcher(models.Model):
         'Applicant',
         required=True
         )
+    notify_date = fields.Date()
+    buy_date = fields.Date()
 
     @api.onchange('operating_unit_id')
     def _applicants_onchange(self):
